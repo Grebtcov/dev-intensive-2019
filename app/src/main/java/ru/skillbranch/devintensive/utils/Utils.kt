@@ -71,29 +71,15 @@ object Utils {
 
         val initials : String
 
-        if ((firstName == "" || firstName == " ") &&  (lastName == "" || lastName == " ")) return null
-        else if (firstName == "" || firstName == " " || firstName == null) initials = "${lastName?.toUpperCase()?.getOrNull(0)}"
-        else if(lastName == "" || lastName == " " || lastName == null) initials = "${firstName?.toUpperCase()?.getOrNull(0)}"
-        else initials = "${firstName?.toUpperCase()?.getOrNull(0)}" +
+        initials = if ((firstName == "" || firstName == " ") &&  (lastName == "" || lastName == " ")) return null
+        else if (firstName == "" || firstName == " " || firstName == null) "${lastName?.toUpperCase()?.getOrNull(0)}"
+        else if(lastName == "" || lastName == " " || lastName == null) "${firstName?.toUpperCase()?.getOrNull(0)}"
+        else "${firstName?.toUpperCase()?.getOrNull(0)}" +
                 "${lastName?.toUpperCase()?.getOrNull(0)}"
 
         return initials
     }
 
-    fun GetDeclension(number : Int, nominativ: String, genetiv: String , plural:String ) : String
-    {
-        var number = number % 100
-        if ((number >= 11) && (number <= 19))
-        {
-            return plural;
-        }
-        var i = number % 10;
-        when (i)
-        {
-            1 -> return nominativ;
-            in 2..4 -> return genetiv;
-            else -> return plural;
-        }
-    }
+
 
 }
