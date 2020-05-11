@@ -19,7 +19,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
         return if (question.answers.contains(answer)){
             if(question != Question.IDLE){
                 question = question.nextQuestion()
-                "Отлично - ты справился\n ${question.question}" to status.color
+                "Отлично - ты справился\n${question.question}" to status.color
             }else{
                 "Отлично - ты справился\nНа этом все, вопросов больше нет" to status.color
             }
@@ -28,7 +28,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
            if (check == null) {
                if (status != Status.CRITICAL) {
                    status = status.nextStatus()
-                   "Это неправильный ответ \n ${question.question}" to status.color
+                   "Это неправильный ответ\n${question.question}" to status.color
                } else {
                    status = Status.NORMAL
                    question = Question.NAME
